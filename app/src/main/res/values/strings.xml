@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Notes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="tvTitleText">Title</string>
+    <string name="etBodyText">Write your note here</string>
+</resources>
