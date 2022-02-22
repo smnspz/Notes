@@ -65,6 +65,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvBody"
             tools:ignore="SpeakableTextPresentCheck" />
+
+        <!--    TODO() add submit button    -->
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
