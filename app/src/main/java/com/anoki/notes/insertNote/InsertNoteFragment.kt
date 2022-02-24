@@ -17,14 +17,15 @@ import com.anoki.notes.databinding.FragmentNotesListBinding
 
 class InsertNoteFragment : Fragment() {
     private lateinit var binding: FragmentInsertNoteBinding
-    var notesViewModel: NotesViewModel? = null
+//    var notesViewModel: NotesViewModel? = null
+    private val viewModel: NotesViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentInsertNoteBinding.inflate(inflater, container, false)
-        notesViewModel = (activity as MainActivity).viewModel
+//        notesViewModel = (activity as MainActivity).viewModel
         return binding.root
     }
 
@@ -39,7 +40,8 @@ class InsertNoteFragment : Fragment() {
         val noteTitle = binding.etTitle.text.toString()
         val noteBody = binding.etBody.text.toString()
         if (noteTitle.isNotEmpty() && noteBody.isNotEmpty()) {
-            notesViewModel?.addNote(Note(null, noteTitle, noteBody))
+//            notesViewModel?.addNote(Note(null, noteTitle, noteBody))
+            viewModel.addNote(Note(null, noteTitle, noteBody))
         } else {
             Toast.makeText(
                 this.context,
