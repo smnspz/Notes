@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
+import com.anoki.notes.MainActivity
 import com.anoki.notes.NotesViewModel
 import com.anoki.notes.data.Note
 import com.anoki.notes.databinding.FragmentInsertNoteBinding
@@ -16,13 +17,14 @@ import com.anoki.notes.databinding.FragmentNotesListBinding
 
 class InsertNoteFragment : Fragment() {
     private lateinit var binding: FragmentInsertNoteBinding
-    private val viewModel: NotesViewModel by activityViewModels()
+    var notesViewModel: NotesViewModel? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentInsertNoteBinding.inflate(inflater, container, false)
+        notesViewModel = (activity as MainActivity).viewModel
         return binding.root
     }
 
@@ -37,7 +39,7 @@ class InsertNoteFragment : Fragment() {
         val noteTitle = binding.etTitle.text.toString()
         val noteBody = binding.etBody.text.toString()
         if (noteTitle.isNotEmpty() && noteBody.isNotEmpty()) {
-            viewModel.addNote(Note(null, noteTitle, noteBody))
+            notesViewModel?.addNote(Note(null, noteTitle, noteBody))
         } else {
             Toast.makeText(
                 this.context,

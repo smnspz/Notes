@@ -13,7 +13,7 @@ import com.anoki.notes.data.NoteRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class NotesViewModel(application: Application) : AndroidViewModel(application) {
+class NotesViewModel(application: Application) : ViewModel() {
 
     private val notesList: LiveData<List<Note>>
     private val repository: NoteRepository
