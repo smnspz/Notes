@@ -4,6 +4,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.anoki.notes.insertNote.InsertNoteFragment
+import com.anoki.notes.notesList.NotesListFragment
 
 private const val NUM_TABS = 2
 

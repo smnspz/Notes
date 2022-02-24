@@ -1,21 +1,20 @@
-package com.anoki.notes
+package com.anoki.notes.notesList
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.anoki.notes.databinding.FragmentInsertNoteBinding
 import com.anoki.notes.databinding.FragmentNotesListBinding
 
-class InsertNoteFragment : Fragment() {
-    private lateinit var binding: FragmentInsertNoteBinding
+class NotesListFragment : Fragment() {
+    private lateinit var binding: FragmentNotesListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentInsertNoteBinding.inflate(inflater, container, false)
+        binding = FragmentNotesListBinding.inflate(inflater, container, false)
         return binding.root
     }
 }

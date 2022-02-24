@@ -3,4 +3,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="tvTitleText">Title</string>
     <string name="etBodyText">Write your note here</string>
+    <string name="btnSubmit">Submit</string>
 </resources>
