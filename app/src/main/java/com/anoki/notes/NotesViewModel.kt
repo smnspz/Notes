@@ -1,13 +1,8 @@
 package com.anoki.notes
 
 import android.app.Application
-import android.util.Log
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.anoki.notes.data.Note
-import com.anoki.notes.data.NoteDao
 import com.anoki.notes.data.NoteDatabase
 import com.anoki.notes.data.NoteRepository
 import kotlinx.coroutines.Dispatchers
@@ -15,13 +10,14 @@ import kotlinx.coroutines.launch
 
 class NotesViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val notesList: LiveData<List<Note>>
     private val repository: NoteRepository
+
+    val allNotes: LiveData<List<Note>>
 
     init {
         val dao = NoteDatabase.getDatabase(application).noteDao()
         repository = NoteRepository(dao)
-        notesList = repository.listNotes
+        allNotes = repository.allNotes
     }
 
     fun addNote(note: Note) {
