@@ -39,10 +39,16 @@ class InsertNoteFragment : Fragment() {
         val noteTitle = binding.etTitle.text.toString()
         val noteBody = binding.etBody.text.toString()
         if (noteTitle.isNotEmpty() && noteBody.isNotEmpty()) {
-            viewModel.addNote(Note(null, noteTitle, noteBody))
+            addAndClearFields(noteTitle, noteBody)
         } else {
             emptyFieldsWarning()
         }
+    }
+
+    private fun addAndClearFields(noteTitle: String, noteBody: String) {
+        viewModel.addNote(Note(null, noteTitle, noteBody))
+        binding.etTitle.setText("")
+        binding.etBody.setText("")
     }
 
     private fun emptyFieldsWarning() {
