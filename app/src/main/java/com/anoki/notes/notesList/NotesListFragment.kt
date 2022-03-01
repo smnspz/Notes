@@ -22,19 +22,16 @@ class NotesListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentNotesListBinding.inflate(inflater, container, false)
-        setupUI(binding)
-        return binding.root
-    }
-
-    private fun setupUI(binding: FragmentNotesListBinding) {
+        adapter = NotesListAdapter(listOf())
         setupAdapter()
+        return binding.root
     }
 
     private fun setupAdapter() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
         viewModel.allNotes.observe(viewLifecycleOwner, Observer {
             adapter = NotesListAdapter(it)
+            binding.recyclerView.adapter = adapter
         })
-        binding.recyclerView.adapter = adapter
     }
 }

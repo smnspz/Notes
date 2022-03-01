@@ -40,15 +40,16 @@ class InsertNoteFragment : Fragment() {
         val noteBody = binding.etBody.text.toString()
         if (noteTitle.isNotEmpty() && noteBody.isNotEmpty()) {
             viewModel.addNote(Note(null, noteTitle, noteBody))
-            viewModel.allNotes.observe(viewLifecycleOwner, Observer {
-                Log.d(it.toString(), "Notes")
-            })
         } else {
-            Toast.makeText(
-                this.context,
-                "You can't enter an empty note!",
-                Toast.LENGTH_SHORT)
-                .show()
+            emptyFieldsWarning()
         }
+    }
+
+    private fun emptyFieldsWarning() {
+        Toast.makeText(
+            this.context,
+            "You can't enter an empty note!",
+            Toast.LENGTH_SHORT)
+            .show()
     }
 }

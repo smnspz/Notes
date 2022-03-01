@@ -9,7 +9,7 @@ import com.anoki.notes.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-val tabsList = listOf<String>(
+val tabsList = listOf(
     "Insert note",
     "Notes list"
 )
